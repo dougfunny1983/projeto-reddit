@@ -2,11 +2,11 @@ import React, { useEffect, useContext } from 'react';
 import { RedditContext } from '../context/RedditContext';
 
 const Header = () => {
-  const { getReddit, setData } = useContext(RedditContext);
+  const { getReddit, setData, select } = useContext(RedditContext);
 
   useEffect(() => {
-    getReddit().then((data) => setData(data));
-  }, [getReddit, setData]);
+    getReddit(select).then((data) => setData(data));
+  }, []);
 
   return <h1>Reddit!!!</h1>;
 };

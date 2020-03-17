@@ -1,7 +1,7 @@
-const URL = 'https://www.reddit.com/r/reactjs.json';
+const URL=(value) => `https://www.reddit.com/r/${value}.json`;
 
-const getReddit = () =>
-  fetch(URL).then((response) =>
+const getReddit = (value) =>
+  fetch(URL(value)).then((response) =>
     response
       .json()
       .then((json) =>
