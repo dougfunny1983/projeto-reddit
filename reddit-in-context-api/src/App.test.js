@@ -67,6 +67,7 @@ describe('Testando o Select', () => {
 
 describe('campo de atualização', () => {
   test('testando o componente do refresh',  () => {
+    clear();
     const { getByText } = render(<App />);
     expect(getByText(/refresh/i)).toBeInTheDocument();
     expect(getByText(/refresh/i)).not.toBeDisabled()
@@ -74,7 +75,7 @@ describe('campo de atualização', () => {
     fireEvent.click(getByText(/refresh/i))
     expect(getByText(/Atualização da página/i)).toBeInTheDocument();
   })
-  
+  clear();
 })
 
 
