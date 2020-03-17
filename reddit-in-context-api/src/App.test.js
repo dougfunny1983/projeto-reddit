@@ -42,12 +42,23 @@ describe('Testando o Select', () => {
     expect(getByText(/Selected: frontend/i)).toBeInTheDocument();
   });
   clear();
-  test('Verificando mudanças no select', async () => {
+  test('Verificando mudanças no select 1', async () => {
     const { getByTestId, getByText, getAllByTestId } = render(<App />);
     await waitForDomChange();
     const select = getByTestId(/select/i);
     fireEvent.change(select, { target: { value: 'frontend' } });
     expect(getByText(/Selected: frontend/i)).toBeInTheDocument();
+    const tagLi = getAllByTestId(/TagLi/i)
+    expect(tagLi.length).toBe(27);
+  });
+  clear();
+  clear();
+  test('Verificando mudanças no select 2', async () => {
+    const { getByTestId, getByText, getAllByTestId } = render(<App />);
+    await waitForDomChange();
+    const select = getByTestId(/select/i);
+    fireEvent.change(select, { target: { value: 'reactjs' } });
+    expect(getByText(/Selected: reactjs/i)).toBeInTheDocument();
     const tagLi = getAllByTestId(/TagLi/i)
     expect(tagLi.length).toBe(27);
   });
@@ -65,4 +76,5 @@ describe('campo de atualização', () => {
   })
   
 })
+
 

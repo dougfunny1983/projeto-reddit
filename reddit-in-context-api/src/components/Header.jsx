@@ -6,7 +6,7 @@ const Header = () => {
 
   useEffect(() => {
     getReddit(select).then((data) => setData(data));
-  }, []);
+  }, [getReddit, select, setData]);
 
   return <h1>Reddit!!!</h1>;
 };
